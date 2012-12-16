@@ -101,5 +101,5 @@ process.on('exit', function() {
   assert.equal(serverResults[0], clientsResults[0]);
   assert.equal(serverResults[1], clientsResults[1]);
   assert.equal(serverResults[2], 'first-priority-unsupported');
-  assert.equal(clientsResults[2], false);
+  assert.equal(clientsResults[2], 'first-priority-unsupported');
 });

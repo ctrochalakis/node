@@ -1098,12 +1098,10 @@ int Connection::SelectNextProtoCallback_(SSL *s,
       p->selectedNPNProto_ = Persistent<Value>::New(Null());
       break;
     case OPENSSL_NPN_NEGOTIATED:
+    case OPENSSL_NPN_NO_OVERLAP:
       p->selectedNPNProto_ = Persistent<Value>::New(String::New(
                                  reinterpret_cast<const char*>(*out), *outlen
                              ));
-      break;
-    case OPENSSL_NPN_NO_OVERLAP:
-      p->selectedNPNProto_ = Persistent<Value>::New(False());
       break;
     default:
       break;
